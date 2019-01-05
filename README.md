@@ -23,13 +23,14 @@ This Dockerfile has had *very limited* testing. It would be great to get positiv
 * Run Atlas Dedicated Server
 
         docker run -d --name=atlas-server \
+        --net=host \
         -v /some/path/atlas-server:/mnt/atlas-server \
         atlas-server start-server \
         "Ocean?ServerX=0?ServerY=0?MaxPlayers=10?ReservedPlayerSlots=5?QueryPort=57555?Port=5755?SeamlessIP=XXX.XXX.XXX.XXX -NoBattlEye -log -server"
 
     * Make sure to replace the placeholder SeamlessIP with your public IP
-    * Depending on your setup you'll likely need to expose docker to your network so the server can be accessed from the Internet. The easiest way to do this is to add `--net=host` to the above `docker run...` command.
-    * You'll also want to expose the ports you're using for the server, plus the seamless port `27000` in my case. Given the above example, we'd add the following to the `docker run...` command: ` --expose 5755 --expose 57555 --expose 27000`
+    * The above example uses `--net=host`, which means the containers networking stack is the hsots. This is the easiest way to et things up, but by no means the only way.
+    * If you do not use `--net=host`, you'll need to expose the ports you're using for the server, plus the seamless port,`27000` in the above example. Following the example, add these flags to the `docker run...` command: ` --expose 5755 --expose 57555 --expose 27000`
 
 * Monitor logs / VNC
 
