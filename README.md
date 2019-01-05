@@ -24,14 +24,14 @@ This Dockerfile has had *very limited* testing. It would be great to get positiv
 
 * Run Atlas Dedicated Server
 
-        docker run -d --name=atlas-server \
+        docker run -d -t --name=atlas-server \
         --net=host \
         -v /some/path/atlas-server:/mnt/atlas-server \
         atlas-server start-server \
         "Ocean?ServerX=0?ServerY=0?MaxPlayers=10?ReservedPlayerSlots=5?QueryPort=57555?Port=5755?SeamlessIP=XXX.XXX.XXX.XXX -NoBattlEye -log -server"
 
     * Make sure to replace the placeholder SeamlessIP with your public IP
-    * For debugging purposes I recommend not using `-d` but instead using `--rm -it` which will give real-time console output.
+    * For debugging purposes I recommend not using `-d -t` but instead using `--rm -it` which will give real-time console output.
     * The above example uses `--net=host`, which means the containers networking stack is the hosts. This is the easiest way to set things up, but by no means the only way.
     * If you do not use `--net=host`, you'll need to expose the ports you're using for the server, plus the SeamlessIP port,`27000` in the above example. Following the example, add these flags to the `docker run...` command: `--expose 5755 --expose 57555 --expose 27000`
 
