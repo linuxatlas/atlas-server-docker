@@ -1,12 +1,18 @@
 FROM ubuntu
 
+# user / group args
+ARG UNAME=wine
+ARG UID=1000
+ARG GID=1000
+
 # create wine user
-RUN useradd -u 1001 -d /home/wine -m -s /bin/bash wine
-ENV HOME /home/wine
-WORKDIR /home/wine
+RUN groupadd -g ${GID} -o ${UNAME}
+RUN useradd -u ${UID} -g ${GID} -d /home/${UNAME} -m -s /bin/bash ${UNAME}
+ENV HOME /home/${UNAME}
+WORKDIR /home/${UNAME}
 
 # wine env vars
-ENV WINEPREFIX /home/wine/.wine
+ENV WINEPREFIX /home/${UNAME}/.wine
 ENV WINEARCH win64
 ENV WINEDEBUG -all
 
@@ -38,14 +44,14 @@ RUN apt-get update && \
     # install wine and deps
     apt-get install -y --install-recommends winehq-devel && \
     apt-get install -y --no-install-recommends winbind && \
-    su -p -l wine -c 'winecfg && wineserver --wait' && \
+    su -p -l ${UNAME} -c 'winecfg && wineserver --wait' && \
     # steamcmd
-    su -p -l wine -c 'wget -qO- "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -' && \
+    su -p -l ${UNAME} -c 'wget -qO- "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -' && \
     # clean
     apt-get autoremove -y --purge software-properties-common && \
     apt-get autoremove -y --purge && \
     apt-get clean -y && \
-    rm -rf /home/wine/.cache && \
+    rm -rf /home/${UNAME}/.cache && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # END install
@@ -65,4 +71,4 @@ CMD ["install-server"]
 COPY ./bin /usr/local/bin
 RUN chmod a+x /usr/local/bin/*
 
-USER wine
+USER ${UNAME}

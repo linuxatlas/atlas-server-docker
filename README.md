@@ -10,7 +10,9 @@ This Dockerfile has had *very limited* testing. It would be great to get positiv
 * Clone or download a zip of this repository
 * Build the Docker image
 
-        docker build -t atlas-server .
+        docker build \
+        --build-arg UID=$(id -u) --build-arg GID=$(id -g) \
+        -t atlas-server .
 
 * Install Atlas Dedicated Server
 
