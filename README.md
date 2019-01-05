@@ -29,6 +29,7 @@ This Dockerfile has had *very limited* testing. It would be great to get positiv
 
     * Make sure to replace the placeholder SeamlessIP with your public IP
     * Depending on your setup you'll likely need to expose docker to your network so the server can be accessed from the Internet. The easiest way to do this is to add `--net=host` to the above `docker run...` command.
+    * You'll also want to expose the ports you're using for the server, plus the seamless port `27000` in my case. Given the above example, we'd add the following to the `docker run...` command: ` --expose 5755 --expose 57555 --expose 27000`
 
 * Monitor logs / VNC
 
