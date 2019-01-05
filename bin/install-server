@@ -1,0 +1,3 @@
+#!/bin/bash
+set -e
+~wine/steamcmd.sh +login anonymous +force_install_dir /mnt/atlas-server +app_update 1006030 +quit
