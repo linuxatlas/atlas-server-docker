@@ -14,7 +14,7 @@ This Dockerfile has had *very limited* testing. It would be great to get positiv
 
 * Install Atlas Dedicated Server
 
-        docker run --rm -v /some/path/atlas-server:/mnt/atlas-server
+        docker run --rm -v /some/path/atlas-server:/mnt/atlas-server atlas-server
 
     * This will install the server into the path given and exit. Use this same command to upgrade the server.
 
@@ -24,7 +24,7 @@ This Dockerfile has had *very limited* testing. It would be great to get positiv
 
         docker run -d --name=atlas-server \
         -v /some/path/atlas-server:/mnt/atlas-server \
-        start-server \
+        atlas-server start-server \
         "Ocean?ServerX=0?ServerY=0?MaxPlayers=10?ReservedPlayerSlots=5?QueryPort=57555?Port=5755?SeamlessIP=XXX.XXX.XXX.XXX -NoBattlEye -log -server"
 
     * Make sure to replace the placeholder SeamlessIP with your public IP
