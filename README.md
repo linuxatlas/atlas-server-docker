@@ -16,7 +16,7 @@ This Dockerfile has had *very limited* testing. It would be great to get positiv
 
 * Install Atlas Dedicated Server
 
-        docker run --rm -v /some/path/atlas-server:/mnt/atlas-server atlas-server
+        docker run --rm -it -v /some/path/atlas-server:/mnt/atlas-server atlas-server
 
     * This will install the server into the path given and exit. Use this same command to upgrade the server.
 
