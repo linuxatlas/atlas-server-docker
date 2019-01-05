@@ -45,4 +45,5 @@ If you wish to contribute please open a pull request.
 
 ## Known Issues
 
+* This was built and tested with a 1x1 map as such it assumes as much. Redis is started per instance of this container. If you want to use this for more than one tile, it will have to be modified to not run Redis in the `start-server` script.
 * I've been unable to start a large 1x1 tile that requires ~22GB or RAM. Wine crashes right around 16GB. Less populated tiles work.
