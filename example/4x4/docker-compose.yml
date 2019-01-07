@@ -5,7 +5,7 @@ services:
     image: redis:3.2
     command: redis-server --appendonly yes --requirepass 269f7df4-4cf3-4b2f-8e33-53ed126d4cd1
     volumes:
-      - "${HOST_PATH}:/data"
+      - "${HOST_PATH}/redis:/data"
     ports:
       - "6379:6379"
         
