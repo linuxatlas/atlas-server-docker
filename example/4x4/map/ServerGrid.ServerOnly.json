@@ -1,0 +1,65 @@
+{
+  "LocalS3URL": "",
+  "LocalS3AccessKeyId": "",
+  "LocalS3SecretKey": "",
+  "LocalS3BucketName": "",
+  "LocalS3Region": "",
+  "TribeLogConfig": {
+    "MaxRedisEntries": 1000,
+    "BackupMode": "off",
+    "MaxFileHistory": 10,
+    "HttpBackupURL": "",
+    "HttpAPIKey": "",
+    "S3KeyPrefix": ""
+  },
+  "SharedLogConfig": {
+    "FetchRateSec": 60,
+    "SnapshotCleanupSec": 900,
+    "SnapshotRateSec": 1800,
+    "SnapshotExpirationHours": 48,
+    "BackupMode": "off",
+    "MaxFileHistory": 10,
+    "HttpBackupURL": "",
+    "HttpAPIKey": "",
+    "S3KeyPrefix": ""
+  },
+  "TravelDataConfig": {
+    "BackupMode": "off",
+    "MaxFileHistory": 10,
+    "HttpBackupURL": "",
+    "HttpAPIKey": "",
+    "S3KeyPrefix": ""
+  },
+  "DatabaseConnections": [
+    {
+      "Name": "Default",
+      "URL": "redis",
+      "Port": 6379,
+      "Password": "269f7df4-4cf3-4b2f-8e33-53ed126d4cd1"
+    },
+    {
+      "Name": "TribeDB",
+      "URL": "redis",
+      "Port": 6379,
+      "Password": "269f7df4-4cf3-4b2f-8e33-53ed126d4cd1"
+    },
+    {
+      "Name": "TravelDataDB",
+      "URL": "redis",
+      "Port": 6379,
+      "Password": "269f7df4-4cf3-4b2f-8e33-53ed126d4cd1"
+    },
+    {
+      "Name": "TerritoryDB",
+      "URL": "redis",
+      "Port": 6379,
+      "Password": "269f7df4-4cf3-4b2f-8e33-53ed126d4cd1"
+    },
+    {
+      "Name": "LogDB",
+      "URL": "redis",
+      "Port": 6379,
+      "Password": "269f7df4-4cf3-4b2f-8e33-53ed126d4cd1"
+    }
+  ]
+}

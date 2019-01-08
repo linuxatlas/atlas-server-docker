@@ -8,6 +8,7 @@ if [ $# -eq 0 ]; then
 fi
 
 export DISPLAY=:20
+# Disable the following line if you run your own separate Redis
 redis-server /mnt/atlas-server/AtlasTools/RedisDatabase/redis.conf >>/mnt/atlas-server/redis.log 2>&1 &
 Xvfb :20 -screen 0 1366x768x16 >>/mnt/atlas-server/Xvfb.log 2>&1 &
 # x11vnc -passwd TestVNC -display :20 -N -forever &
