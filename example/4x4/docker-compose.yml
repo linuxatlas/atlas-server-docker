@@ -92,9 +92,9 @@ services:
     tty: true
     command: start-server "Ocean?ServerX=2?ServerY=1?AltSaveDirectoryName=C2?QueryPort=57521?Port=5721?MaxPlayers=${MAX_PLAYERS}?ReservedPlayerSlots=${RESERVED_PLAYERS}?SeamlessIP=${EXTERNAL_IP} -NoBattlEye -log -server"
     ports:
-      - "57521:57531/udp"
-      - "5721:5731/udp"
-      - "27021:27031"
+      - "57521:57521/udp"
+      - "5721:5721/udp"
+      - "27021:27021"
     volumes:
       - "${HOST_PATH}:/mnt/atlas-server/"
     depends_on:
